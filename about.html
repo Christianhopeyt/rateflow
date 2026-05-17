@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <script>(function(){var t=localStorage.getItem('rf-theme')||'dark';document.documentElement.setAttribute('data-theme',t);})();</script><meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>About RateFlow — Free Real-Time Currency Converter for 170+ Currencies</title>
+  <meta name="description" content="RateFlow is a free currency converter with 170+ currencies including all African currencies. Learn about our mission, data sources, and how we stay free.">
+  <link rel="canonical" href="https://rateflowcurrency.netlify.app/about">
+  <meta property="og:title" content="About RateFlow — Free Currency Converter for 170+ Currencies">
+  <meta property="og:description" content="Our mission, data sources, and how RateFlow stays free forever.">
+  <meta property="og:type" content="website"><meta property="og:url" content="https://rateflowcurrency.netlify.app/about">
+  <meta property="og:image" content="https://rateflowcurrency.netlify.app/icon-512.png">
+  <meta name="google-site-verification" content="GKNVodeIG9RQX6SUHoXPT51EK4NYIcYMNSe5djwQMNM">
+  <link rel="icon" type="image/x-icon" href="favicon.ico"><link rel="apple-touch-icon" href="icon-192.png"><link rel="manifest" href="site.webmanifest">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .about-hero{padding:88px 20px 60px;text-align:center;position:relative;overflow:hidden;}
+    .about-hero::before{content:'';position:absolute;top:-150px;left:50%;transform:translateX(-50%);width:700px;height:500px;background:radial-gradient(ellipse,rgba(61,255,160,.08) 0%,transparent 70%);pointer-events:none;}
+    .about-hero h1{font-size:clamp(30px,6vw,58px);font-weight:900;letter-spacing:-1.5px;margin-bottom:16px;}
+    .about-hero p{color:var(--text-secondary);font-size:17px;max-width:500px;margin:0 auto;line-height:1.7;}
+    .stats-row{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;max-width:860px;margin:0 auto 60px;padding:0 20px;}
+    .stat-card{text-align:center;padding:28px 16px;}
+    .stat-val{font-size:40px;font-weight:900;font-family:'JetBrains Mono',monospace;}
+    .stat-lbl{color:var(--text-tertiary);font-size:12px;margin-top:6px;}
+    .about-grid{max-width:860px;margin:0 auto;padding:0 20px 80px;display:flex;flex-direction:column;gap:24px;}
+    .about-card{padding:32px 36px;}
+    .about-card-icon{width:44px;height:44px;background:rgba(61,255,160,.1);border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:16px;}
+    .about-card-icon img{width:22px;height:22px;filter:invert(73%) sepia(49%) saturate(443%) hue-rotate(103deg);}
+    .about-card h2{font-size:20px;font-weight:800;margin-bottom:12px;}
+    .about-card p{color:var(--text-secondary);font-size:15px;line-height:1.8;}
+    .about-card p+p{margin-top:10px;}
+    .about-card a{color:var(--gradient-mid);}
+    @media(max-width:640px){.stats-row{grid-template-columns:1fr;}.about-card{padding:24px 20px;}}
+  </style>
+</head>
+<body>
+<nav class="navbar" id="navbar"></nav>
+<div class="about-hero">
+  <h1>Built for <span class="gradient-text">Everyone.</span><br>Free Forever.</h1>
+  <p>RateFlow gives you accurate, real-time exchange rates for 170+ currencies — including every African currency — with no signup, no ads that track you, and no hidden agenda.</p>
+</div>
+<div class="stats-row">
+  <div class="glass stat-card"><div class="stat-val gradient-text">170+</div><div class="stat-lbl">Currencies supported</div></div>
+  <div class="glass stat-card"><div class="stat-val gradient-text">0</div><div class="stat-lbl">Required signups</div></div>
+  <div class="glass stat-card"><div class="stat-val gradient-text">ECB</div><div class="stat-lbl">Data source</div></div>
+</div>
+<div class="about-grid">
+  <div class="glass about-card">
+    <div class="about-card-icon"><img src="icons/zap.svg" alt=""></div>
+    <h2>Our Mission</h2>
+    <p>Exchange rate information should be free, accurate, and accessible to everyone — whether you're a student sending money home to Cameroon, a freelancer invoicing a client in the US, or a traveller trying to figure out if that market stall in Tokyo is giving you a fair deal.</p>
+    <p>RateFlow was built on a simple belief: you deserve to know the real exchange rate before you convert a single cent. Not the bank's rate. Not the airport's rate. The actual rate.</p>
+  </div>
+  <div class="glass about-card">
+    <div class="about-card-icon"><img src="icons/globe.svg" alt=""></div>
+    <h2>Our Data Source</h2>
+    <p>All exchange rates on RateFlow are sourced from <strong style="color:var(--text-primary)">open.er-api.com</strong>, which provides live rates for 170+ currencies updated every hour. For historical chart data, we use the <strong style="color:var(--text-primary)">Frankfurter API</strong>, which distributes European Central Bank reference rates.</p>
+    <p>Unlike the old Frankfurter-only setup, our current data source includes all African currencies: XAF, XOF, NGN, KES, GHS, ZAR, EGP, and 30+ more — making RateFlow genuinely useful for the African diaspora.</p>
+  </div>
+  <div class="glass about-card">
+    <div class="about-card-icon"><img src="icons/trending.svg" alt=""></div>
+    <h2>How We Stay Free</h2>
+    <p>RateFlow is supported by two transparent revenue streams. First, we display non-intrusive advertising through Google AdSense. Second, some of the "Send Money" links on the site are affiliate links — when you sign up for a transfer service through RateFlow, we may earn a small commission at no cost to you.</p>
+    <p>We only recommend services we believe offer genuine value: transparent fees, fair exchange rates, and solid customer protection. Our editorial content is always written independently.</p>
+  </div>
+  <div class="glass about-card">
+    <div class="about-card-icon"><img src="icons/lock.svg" alt=""></div>
+    <h2>Privacy First</h2>
+    <p>RateFlow does not collect personal data. No account required, no conversion history stored on our servers, no data sold to third parties. Currency rates are cached locally in your browser for performance — stored on your device, never ours.</p>
+    <p>For full details, see our <a href="privacy-policy">Privacy Policy</a> and <a href="cookies">Cookie Notice</a>.</p>
+  </div>
+  <div class="glass about-card">
+    <div class="about-card-icon"><img src="icons/mail.svg" alt=""></div>
+    <h2>Get in Touch</h2>
+    <p>Have a suggestion, spotted an error, or want to discuss a partnership? We'd love to hear from you. Visit our <a href="contact">Contact page</a> or email us directly at <a href="mailto:rateflowcurrency@gmail.com">rateflowcurrency@gmail.com</a>. We aim to respond to all genuine enquiries within 2 business days.</p>
+  </div>
+</div>
+<footer id="footer"></footer>
+<script src="shared-layout.js"></script><script src="common.js"></script>
+<script>initTheme();injectNavbar('about');injectFooter();injectCookieBanner();</script>
+</body></html>

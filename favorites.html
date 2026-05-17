@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>Favorite Currency Pairs — Quick Access Converter | RateFlow</title>
+  <meta name="description" content="Save your most-used currency pairs like USD/XAF, EUR/NGN for instant one-tap conversion on RateFlow. Free, no signup.">
+  <link rel="canonical" href="https://rateflowcurrency.netlify.app/favorites">
+  <meta property="og:title" content="Favorite Currency Pairs — RateFlow">
+  <meta property="og:description" content="Save your most-used currency pairs for instant access.">
+  <meta property="og:type" content="website"><meta property="og:url" content="https://rateflowcurrency.netlify.app/favorites">
+  <meta property="og:image" content="https://rateflowcurrency.netlify.app/icon-512.png">
+  <script>(function(){var t=localStorage.getItem('rf-theme')||'dark';document.documentElement.setAttribute('data-theme',t);})();</script>
+  <meta name="google-site-verification" content="GKNVodeIG9RQX6SUHoXPT51EK4NYIcYMNSe5djwQMNM">
+  <link rel="icon" type="image/x-icon" href="favicon.ico"><link rel="icon" type="image/png" sizes="32x32" href="favicon.png">
+  <link rel="apple-touch-icon" href="icon-192.png"><link rel="manifest" href="site.webmanifest">
+  <link rel="stylesheet" href="styles.css">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8121112277976862" crossorigin="anonymous"></script>
+  <style>
+    .favs-hero{padding:72px 20px 40px;text-align:center;}
+    .favs-hero h1{font-size:clamp(28px,5vw,46px);font-weight:900;letter-spacing:-1px;margin-bottom:10px;}
+    .favs-hero p{color:var(--text-secondary);font-size:16px;max-width:440px;margin:0 auto;}
+    .favs-wrap{max-width:900px;margin:0 auto;padding:0 20px 80px;}
+    .add-fav-card{padding:24px 28px;margin-bottom:28px;}
+    .add-fav-card h2{font-size:16px;font-weight:800;margin-bottom:18px;display:flex;align-items:center;gap:8px;}
+    .add-fav-card h2 img{width:18px;height:18px;filter:invert(73%) sepia(49%) saturate(443%) hue-rotate(103deg);}
+    .add-row{display:flex;gap:12px;align-items:flex-end;flex-wrap:wrap;}
+    .add-row .field{flex:1;min-width:140px;margin:0;}
+    .field label{display:block;font-size:11px;font-weight:700;color:var(--text-tertiary);text-transform:uppercase;letter-spacing:.8px;margin-bottom:6px;}
+    .field select{width:100%;background:var(--bg-input);border:1px solid var(--border);border-radius:var(--radius-sm);padding:11px 14px;color:var(--text-primary);font-family:'Inter',sans-serif;font-size:14px;outline:none;transition:border-color .2s;}
+    .field select:focus{border-color:var(--gradient-start);box-shadow:0 0 0 3px rgba(61,255,160,.09);}
+    .field select option{background:var(--select-bg)!important;color:var(--select-color)!important;}
+    .favs-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px;}
+    .fav-card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-sm);padding:20px;transition:border-color .2s,transform .2s;cursor:pointer;position:relative;}
+    .fav-card:hover{border-color:rgba(61,255,160,.3);transform:translateY(-3px);}
+    .fav-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;}
+    .fav-pair{font-size:16px;font-weight:700;display:flex;align-items:center;gap:8px;}
+    .fav-remove{background:none;border:none;cursor:pointer;opacity:.4;transition:opacity .2s;padding:4px;}
+    .fav-remove:hover{opacity:1;}
+    .fav-remove img{width:16px;height:16px;filter:invert(40%) sepia(80%) saturate(500%) hue-rotate(320deg);}
+    .fav-rate{font-family:'JetBrains Mono',monospace;font-size:22px;font-weight:600;color:var(--gradient-start);}
+    .fav-meta{font-size:11px;color:var(--text-tertiary);margin-top:4px;font-family:'JetBrains Mono',monospace;}
+    .fav-convert-btn{margin-top:14px;width:100%;padding:9px;font-size:13px;}
+    .empty-state{text-align:center;padding:56px 20px;color:var(--text-tertiary);}
+    .empty-state img{width:48px;height:48px;opacity:.3;margin:0 auto 16px;filter:invert(73%) sepia(49%) saturate(443%) hue-rotate(103deg);}
+    .empty-state p{font-size:15px;}
+    @media(max-width:500px){.add-row{flex-direction:column;}.add-row .field{width:100%;}}
+  </style>
+</head>
+<body>
+<nav class="navbar" id="navbar"></nav>
+<div class="favs-hero">
+  <h1>Your <span class="gradient-text">Favorites</span></h1>
+  <p>Save currency pairs you use often for instant one-tap conversion.</p>
+</div>
+<div class="favs-wrap">
+  <div class="glass add-fav-card">
+    <h2><img src="icons/star.svg" alt=""> Add Favorite Pair</h2>
+    <div class="add-row">
+      <div class="field"><label>From</label><div class="ss-wrap" id="fav-from-wrap"></div></div>
+      <div class="field"><label>To</label><div class="ss-wrap" id="fav-to-wrap"></div></div>
+      <button class="btn-gradient" id="fav-add-btn" style="padding:11px 24px;font-size:14px;flex-shrink:0">Add</button>
+    </div>
+  </div>
+  <div id="favs-grid" class="favs-grid">
+    <div class="empty-state"><img src="icons/star.svg" alt=""><p>No favorites yet.<br>Add your first pair above.</p></div>
+  </div>
+</div>
+<footer id="footer"></footer>
+<script src="shared-layout.js"></script>
+<script src="common.js"></script>
+<script>
+  initTheme(); injectNavbar('favs'); injectFooter(); injectCookieBanner();
+
+  async function populateSels() {
+    const currencies = await fetchCurrencies();
+    const opts = buildCurrencyOptions(currencies);
+    buildSearchSelect(document.getElementById('fav-from-wrap'), [...opts], 'USD', ()=>{});
+    buildSearchSelect(document.getElementById('fav-to-wrap'),   [...opts], 'XAF', ()=>{});
+  }
+
+  document.getElementById('fav-add-btn').addEventListener('click', () => {
+    const from=document.getElementById('fav-from-wrap')?._ssGetValue?.()||'USD', to=document.getElementById('fav-to-wrap')?._ssGetValue?.()||'XAF';
+    if (isFavorite(from,to)) { showToast(`${from}/${to} is already in favorites.`); return; }
+    toggleFavorite(from,to); renderFavs(); showToast(`${from}/${to} added to Favorites!`);
+  });
+
+  async function renderFavs() {
+    const grid=document.getElementById('favs-grid');
+    const favs=getFavorites();
+    if (!favs.length) { grid.innerHTML='<div class="empty-state"><img src="icons/star.svg" alt=""><p>No favorites yet.<br>Add your first pair above.</p></div>'; return; }
+    grid.innerHTML='';
+    for (const f of favs) {
+      const card=document.createElement('div'); card.className='fav-card';
+      let rateHtml='<span style="color:var(--text-tertiary)">Loading…</span>', meta='';
+      try { const {rate,date}=await fetchRate(f.from,f.to); rateHtml=`${formatAmount(rate)}`; meta=`1 ${f.from} · ${date}`; } catch {}
+      card.innerHTML=`
+        <div class="fav-header">
+          <div class="fav-pair">${getFlag(f.from)} ${f.from} <span style="color:var(--text-tertiary);font-weight:400">→</span> ${getFlag(f.to)} ${f.to}</div>
+          <button class="fav-remove" data-key="${f.key}" title="Remove favorite" aria-label="Remove favorite"><img src="icons/zap.svg" alt="remove"></button>
+        </div>
+        <div class="fav-rate">${rateHtml}</div>
+        <div class="fav-meta">${meta}</div>
+        <a href="?from=${f.from}&to=${f.to}" class="btn-gradient fav-convert-btn">Convert Now</a>`;
+      card.querySelector('.fav-remove').addEventListener('click', e => { e.stopPropagation(); const k=e.currentTarget.dataset.key; const parts=k.split('_'); toggleFavorite(parts[0],parts[1]); renderFavs(); showToast('Removed from favorites.'); });
+      grid.appendChild(card);
+    }
+  }
+
+  populateSels().then(renderFavs);
+</script>
+</body>
+</html>

@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <script>(function(){var t=localStorage.getItem('rf-theme')||'dark';document.documentElement.setAttribute('data-theme',t);})();</script>
+  <title>How to Use RateFlow — Guide to All Tools & Features | RateFlow</title>
+  <meta name="description" content="Complete guide to all RateFlow tools: currency converter, rate alerts, favorites, historical charts, and calculator tools. Learn how to get the most out of every feature.">
+  <link rel="canonical" href="https://rateflowcurrency.netlify.app/guide">
+  <meta property="og:title" content="How to Use RateFlow — Complete Tools Guide">
+  <meta property="og:description" content="Step-by-step guide to RateFlow's converter, alerts, favorites, historical charts and calculator tools.">
+  <meta property="og:type" content="website"><meta property="og:url" content="https://rateflowcurrency.netlify.app/guide">
+  <meta property="og:image" content="https://rateflowcurrency.netlify.app/icon-512.png">
+  <meta name="google-site-verification" content="GKNVodeIG9RQX6SUHoXPT51EK4NYIcYMNSe5djwQMNM">
+  <link rel="icon" type="image/x-icon" href="favicon.ico"><link rel="apple-touch-icon" href="icon-192.png"><link rel="manifest" href="site.webmanifest">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .guide-hero{padding:72px 20px 48px;text-align:center;}
+    .guide-hero h1{font-size:clamp(28px,5vw,48px);font-weight:900;letter-spacing:-1px;margin-bottom:12px;}
+    .guide-hero p{color:var(--text-secondary);font-size:16px;max-width:520px;margin:0 auto;}
+    .guide-toc{max-width:760px;margin:0 auto 56px;padding:0 20px;}
+    .guide-toc-inner{background:rgba(61,255,160,.04);border:1px solid rgba(61,255,160,.15);border-radius:var(--radius-sm);padding:20px 24px;}
+    .guide-toc h3{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--text-tertiary);margin-bottom:12px;}
+    .guide-toc ol{padding-left:20px;display:grid;grid-template-columns:1fr 1fr;gap:6px 24px;}
+    .guide-toc li a{font-size:14px;color:var(--gradient-mid);}
+    .guide-toc li a:hover{text-decoration:underline;}
+    .guide-section{max-width:760px;margin:0 auto;padding:0 20px 80px;display:flex;flex-direction:column;gap:40px;}
+    .tool-card{padding:32px;}
+    .tool-header{display:flex;align-items:flex-start;gap:16px;margin-bottom:20px;}
+    .tool-icon{width:48px;height:48px;flex-shrink:0;background:rgba(61,255,160,.1);border:1px solid rgba(61,255,160,.18);border-radius:12px;display:flex;align-items:center;justify-content:center;color:var(--gradient-start);}
+    .tool-icon svg{width:24px;height:24px;}
+    .tool-title-group h2{font-size:20px;font-weight:800;margin-bottom:4px;}
+    .tool-title-group p{font-size:13px;color:var(--gradient-mid);font-weight:500;}
+    .tool-body p{color:var(--text-secondary);font-size:15px;line-height:1.8;margin-bottom:14px;}
+    .tool-body h3{font-size:15px;font-weight:700;color:var(--text-primary);margin:20px 0 8px;}
+    .tool-body ul,.tool-body ol{color:var(--text-secondary);font-size:15px;padding-left:22px;margin-bottom:14px;display:flex;flex-direction:column;gap:7px;line-height:1.7;}
+    .tool-body strong{color:var(--text-primary);}
+    .tool-body a{color:var(--gradient-mid);}
+    .tool-body a:hover{text-decoration:underline;}
+    .tool-steps{counter-reset:step;list-style:none;padding-left:0!important;}
+    .tool-steps li{display:flex;gap:14px;align-items:flex-start;padding:12px 0;border-bottom:1px solid var(--border);}
+    .tool-steps li:last-child{border-bottom:none;}
+    .step-num{width:28px;height:28px;background:rgba(61,255,160,.12);border:1px solid rgba(61,255,160,.2);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;color:var(--gradient-start);flex-shrink:0;margin-top:1px;}
+    .tip-box{background:rgba(14,165,233,.06);border:1px solid rgba(14,165,233,.2);border-radius:var(--radius-sm);padding:14px 18px;margin:16px 0;}
+    .tip-box p{margin:0;font-size:13px;color:var(--text-secondary);}
+    .tip-box strong{color:var(--gradient-end);}
+    .cta-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px;}
+    @media(max-width:600px){
+      .guide-toc ol{grid-template-columns:1fr;}
+      .tool-card{padding:22px 16px;}
+      .cta-row{flex-direction:column;}
+      .cta-row a{text-align:center;}
+    }
+  </style>
+</head>
+<body>
+<nav class="navbar" id="navbar"></nav>
+
+<div class="guide-hero">
+  <h1>How to Use <span class="gradient-text">RateFlow</span></h1>
+  <p>A complete guide to every tool on RateFlow — what each one does, why it matters, and how to get the most out of it.</p>
+</div>
+
+<div class="guide-toc">
+  <div class="guide-toc-inner">
+    <h3>Table of Contents</h3>
+    <ol>
+      <li><a href="#converter">Currency Converter</a></li>
+      <li><a href="#rates">Live Rates Table</a></li>
+      <li><a href="#alerts">Rate Alerts</a></li>
+      <li><a href="#favorites">Favorites</a></li>
+      <li><a href="#charts">Historical Charts</a></li>
+      <li><a href="#calculator">Calculator Tools</a></li>
+      <li><a href="#theme">Dark / Light Mode</a></li>
+      <li><a href="#mobile">Using on Mobile</a></li>
+    </ol>
+  </div>
+</div>
+
+<div class="guide-section">
+
+  <!-- CONVERTER -->
+  <div class="glass tool-card" id="converter">
+    <div class="tool-header">
+      <div class="tool-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="17 1 21 5 17 9"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/><polyline points="7 23 3 19 7 15"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/></svg></div>
+      <div class="tool-title-group"><h2>Currency Converter</h2><p>Available on the Home page</p></div>
+    </div>
+    <div class="tool-body">
+      <p>The currency converter is the core feature of RateFlow. It converts any amount between 170+ currencies using live mid-market rates — the same rates banks use when trading with each other. Unlike banks, we show you the real rate, not a padded version.</p>
+      <h3>How to use it</h3>
+      <ol class="tool-steps">
+        <li><span class="step-num">1</span><span>Type the amount you want to convert in the top input field. You can enter any number — whole or decimal.</span></li>
+        <li><span class="step-num">2</span><span>Click the left dropdown (<strong>From</strong>) to choose your starting currency. Use the search box inside the dropdown to quickly find any currency by name or code (e.g. type "XAF" or "franc").</span></li>
+        <li><span class="step-num">3</span><span>Click the right dropdown (<strong>To</strong>) to choose your target currency. The same search works here.</span></li>
+        <li><span class="step-num">4</span><span>The result appears automatically as you type — no button needed. The result uses thousand separators (e.g. 303,500.25) so large amounts are easy to read.</span></li>
+        <li><span class="step-num">5</span><span>Use the <strong>⇅ swap button</strong> to instantly reverse the conversion — useful when you want to see both directions quickly.</span></li>
+        <li><span class="step-num">6</span><span>Click <strong>Copy Result</strong> to copy the full conversion to your clipboard (e.g. "500 USD = 303,500.00 XAF") for pasting into messages or documents.</span></li>
+        <li><span class="step-num">7</span><span>Click the <strong>star icon</strong> to save this pair to your Favorites for instant access next time.</span></li>
+      </ol>
+      <div class="tip-box"><p><strong>Tip:</strong> The rate shown (e.g. "1 USD = 607.34 XAF") is the mid-market rate — the fairest rate available. If a bank quotes you less, they are charging a hidden margin. Use RateFlow's <a href="tools">Bank Markup Finder</a> to see exactly how much.</p></div>
+      <div class="cta-row">
+        <a href="#converter" class="btn-gradient">Open Converter</a>
+        <a href="blog/hidden-exchange-rate-fees-explained" class="btn-outline">Learn About Hidden Fees</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- LIVE RATES -->
+  <div class="glass tool-card" id="rates">
+    <div class="tool-header">
+      <div class="tool-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></div>
+      <div class="tool-title-group"><h2>Live Rates Table</h2><p>Available on the Home page</p></div>
+    </div>
+    <div class="tool-body">
+      <p>The Live Rates table shows real-time exchange rates for the most important currency pairs — all compared against USD. It's designed for quick reference: you can see at a glance what the dollar is worth in dozens of currencies without typing anything.</p>
+      <h3>How to use it</h3>
+      <ol class="tool-steps">
+        <li><span class="step-num">1</span><span>Scroll to the <strong>Live Exchange Rates</strong> section on the Home page.</span></li>
+        <li><span class="step-num">2</span><span>Use the <strong>filter buttons</strong> — All, African, or Major — to focus on the currencies most relevant to you. The "African" filter shows all supported African currencies in one view.</span></li>
+        <li><span class="step-num">3</span><span>Click or tap any row to jump to the converter with that currency pair pre-selected and ready to use.</span></li>
+      </ol>
+      <div class="tip-box"><p><strong>Why it matters:</strong> Knowing the live USD/XAF or USD/NGN rate before you send money ensures you can spot when a bank or transfer service is charging a bad rate.</p></div>
+    </div>
+  </div>
+
+  <!-- RATE ALERTS -->
+  <div class="glass tool-card" id="alerts">
+    <div class="tool-header">
+      <div class="tool-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg></div>
+      <div class="tool-title-group"><h2>Rate Alerts</h2><p>Available at <a href="alerts">rateflowcurrency.netlify.app/alerts</a></p></div>
+    </div>
+    <div class="tool-body">
+      <p>Rate Alerts let you set a target exchange rate and get notified when the market reaches it. This is powerful for anyone who regularly sends money abroad — instead of checking rates daily, you set your target once and let RateFlow watch for you.</p>
+      <h3>How to use it</h3>
+      <ol class="tool-steps">
+        <li><span class="step-num">1</span><span>Go to the <a href="alerts">Rate Alerts page</a>.</span></li>
+        <li><span class="step-num">2</span><span>Choose your <strong>From</strong> and <strong>To</strong> currency. The live rate is shown below the selectors.</span></li>
+        <li><span class="step-num">3</span><span>Enter your <strong>target rate</strong> — the rate at which you'd want to act. For example, if USD/XAF is currently 607 and you'd send money when it hits 615, enter 615.</span></li>
+        <li><span class="step-num">4</span><span>Choose <strong>Above</strong> (alert when rate goes up) or <strong>Below</strong> (alert when rate drops).</span></li>
+        <li><span class="step-num">5</span><span>Click <strong>Set Alert</strong>. Your alert is saved locally in your browser — no account needed.</span></li>
+        <li><span class="step-num">6</span><span>Each time you visit RateFlow, the site checks your alerts against the live rate and shows a notification if your target has been reached.</span></li>
+      </ol>
+      <div class="tip-box"><p><strong>Important:</strong> Alerts are stored in your browser (localStorage). They will work as long as you use the same browser and haven't cleared your site data. Alerts are checked each time you load a RateFlow page.</p></div>
+      <div class="cta-row"><a href="alerts" class="btn-gradient">Set a Rate Alert</a></div>
+    </div>
+  </div>
+
+  <!-- FAVORITES -->
+  <div class="glass tool-card" id="favorites">
+    <div class="tool-header">
+      <div class="tool-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+      <div class="tool-title-group"><h2>Favorites</h2><p>Available at <a href="favorites">rateflowcurrency.netlify.app/favorites</a></p></div>
+    </div>
+    <div class="tool-body">
+      <p>Favorites lets you save currency pairs you convert regularly — like USD/XAF, EUR/NGN, or GBP/KES — so you never have to search for them again. Each saved pair shows the live rate and links directly to the converter.</p>
+      <h3>How to add favorites</h3>
+      <ul>
+        <li>On the Home page converter: after selecting a pair, click the <strong>star icon</strong> button next to "Copy Result".</li>
+        <li>On the Favorites page directly: use the dropdowns to choose a pair and click <strong>Add</strong>.</li>
+      </ul>
+      <h3>How to use favorites</h3>
+      <ol class="tool-steps">
+        <li><span class="step-num">1</span><span>Go to the <a href="favorites">Favorites page</a>. All saved pairs are shown as cards with the live rate.</span></li>
+        <li><span class="step-num">2</span><span>Click <strong>Convert Now</strong> on any card to open the converter with that pair pre-loaded.</span></li>
+        <li><span class="step-num">3</span><span>Click the remove icon on any card to delete a saved pair.</span></li>
+      </ol>
+      <div class="cta-row"><a href="favorites" class="btn-gradient">View My Favorites</a></div>
+    </div>
+  </div>
+
+  <!-- HISTORICAL CHARTS -->
+  <div class="glass tool-card" id="charts">
+    <div class="tool-header">
+      <div class="tool-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
+      <div class="tool-title-group"><h2>Historical Rate Chart</h2><p>Available on the <a href="tools">Tools page</a></p></div>
+    </div>
+    <div class="tool-body">
+      <p>The Historical Rate Chart shows how an exchange rate has moved over the past 7, 30, or 90 days. Understanding rate history helps you decide <em>when</em> to convert — not just <em>how much</em>.</p>
+      <h3>How to use it</h3>
+      <ol class="tool-steps">
+        <li><span class="step-num">1</span><span>Go to the <a href="tools">Tools page</a>.</span></li>
+        <li><span class="step-num">2</span><span>Select your <strong>From</strong> and <strong>To</strong> currencies using the searchable dropdowns.</span></li>
+        <li><span class="step-num">3</span><span>Choose your time range: <strong>7D</strong> (last 7 days), <strong>30D</strong> (last month), or <strong>90D</strong> (last 3 months).</span></li>
+        <li><span class="step-num">4</span><span>Click <strong>Load Chart</strong>. The chart displays with a line graph showing how the rate moved over the selected period.</span></li>
+      </ol>
+      <h3>How to read the chart</h3>
+      <ul>
+        <li>The <strong>Y-axis</strong> shows the exchange rate value (e.g. 607.34 for USD/XAF).</li>
+        <li>The <strong>X-axis</strong> shows dates. The rightmost point is the most recent rate.</li>
+        <li>An <strong>upward trend</strong> means your "From" currency is gaining strength — a good time to convert if you're selling that currency.</li>
+        <li>A <strong>downward trend</strong> means your "From" currency is weakening — you may want to wait if you expect a recovery, or act now if you think it will continue falling.</li>
+      </ul>
+      <div class="tip-box"><p><strong>Note:</strong> For major currency pairs (EUR/USD, GBP/USD, etc.), history is sourced from the European Central Bank via the Frankfurter API. For less common pairs, an estimated trend based on the current rate is shown.</p></div>
+      <div class="cta-row"><a href="tools" class="btn-gradient">Open Historical Charts</a></div>
+    </div>
+  </div>
+
+  <!-- CALCULATOR TOOLS -->
+  <div class="glass tool-card" id="calculator">
+    <div class="tool-header">
+      <div class="tool-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/><line x1="8" y1="10" x2="16" y2="10"/><line x1="8" y1="14" x2="16" y2="14"/><line x1="8" y1="18" x2="12" y2="18"/></svg></div>
+      <div class="tool-title-group"><h2>Calculator Tools</h2><p>Available on the <a href="tools">Tools page</a></p></div>
+    </div>
+    <div class="tool-body">
+      <p>RateFlow's Tools page includes four calculators designed to answer the practical questions people face when dealing with foreign currency.</p>
+
+      <h3>1 — Travel Budget Calculator</h3>
+      <p>Enter your daily budget in your home currency, your destination currency, and how many days you'll be travelling. The calculator tells you your daily budget and total trip cost in local currency at today's live rate — essential for planning before you go.</p>
+
+      <h3>2 — Transfer Fee Comparator</h3>
+      <p>Enter the amount you want to send and your currency pair. The tool shows you how much your recipient would get via a typical bank (3% markup), a good transfer service (0.5%), and an airport kiosk (~8%). Seeing the difference in black and white is the fastest way to understand why choosing the right service matters.</p>
+
+      <h3>3 — Rate Change Calculator</h3>
+      <p>Enter the rate you've been quoted by a bank or service. The tool compares it to the current live mid-market rate and tells you the percentage difference — so you can see at a glance whether you're getting a fair deal.</p>
+
+      <h3>4 — Bank Markup Finder</h3>
+      <p>Similar to the rate change calculator, but focused specifically on identifying how much a bank's hidden markup costs you per 1,000 units sent. Useful for understanding the real cost of a quoted rate.</p>
+
+      <div class="tip-box"><p><strong>Tip:</strong> Use the Transfer Fee Comparator before every international transfer. Even a quick check showing you that a transfer service would deliver $40 more to your recipient than your bank is worth 30 seconds of your time.</p></div>
+      <div class="cta-row"><a href="tools" class="btn-gradient">Open Calculator Tools</a></div>
+    </div>
+  </div>
+
+  <!-- DARK/LIGHT MODE -->
+  <div class="glass tool-card" id="theme">
+    <div class="tool-header">
+      <div class="tool-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/></svg></div>
+      <div class="tool-title-group"><h2>Dark / Light Mode</h2><p>Available on every page</p></div>
+    </div>
+    <div class="tool-body">
+      <p>RateFlow supports both dark mode (default) and light mode. Choose whichever is more comfortable for your eyes and environment.</p>
+      <ul>
+        <li>Click the <strong>moon/sun icon</strong> in the top-right corner of the navigation bar to toggle between modes.</li>
+        <li>Your preference is <strong>saved automatically</strong> in your browser and remembered every time you return to RateFlow.</li>
+        <li>The setting persists across all pages — converter, tools, alerts, blog, and guides all follow your chosen theme.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- MOBILE -->
+  <div class="glass tool-card" id="mobile">
+    <div class="tool-header">
+      <div class="tool-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg></div>
+      <div class="tool-title-group"><h2>Using RateFlow on Mobile</h2><p>Optimised for all screen sizes</p></div>
+    </div>
+    <div class="tool-body">
+      <p>RateFlow is fully responsive and works on all mobile devices and screen sizes. Here are a few tips for the best mobile experience:</p>
+      <ul>
+        <li>Tap the <strong>☰ menu icon</strong> (top right) to open the full navigation menu. All pages are accessible from there.</li>
+        <li>The currency dropdowns include a <strong>search box</strong> — tap the dropdown and start typing the currency name or code to find it instantly without scrolling.</li>
+        <li>Use the <strong>inputmode="decimal"</strong> keyboard (shown automatically) for entering amounts on mobile — it shows numbers and a decimal point without switching to a full keyboard.</li>
+        <li>The <strong>rates table</strong> switches to a two-column layout on smaller screens. Tap any row to convert instantly.</li>
+        <li>Add RateFlow to your <strong>Home Screen</strong> for app-like quick access: in Chrome, tap the three-dot menu → "Add to Home Screen". In Safari, tap the Share icon → "Add to Home Screen".</li>
+      </ul>
+    </div>
+  </div>
+
+</div>
+
+<footer id="footer"></footer>
+<script src="shared-layout.js"></script>
+<script src="common.js"></script>
+<script>initTheme();injectNavbar('guide');injectFooter();injectCookieBanner();</script>
+</body>
+</html>
