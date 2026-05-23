@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <!-- Anti-FOUC: apply saved theme before render -->
+  <script>
+    (function(){var t=localStorage.getItem('rf-theme')||'dark';document.documentElement.setAttribute('data-theme',t);})();
+  </script>
+  <title>RateFlow — Free Real-Time Currency Converter | 170+ Currencies Including African</title>
+  <meta name="description" content="Convert 170+ currencies instantly — XAF, NGN, KES, GHS, ZAR and all African currencies. Live rates, no signup, always free.">
+  <link rel="canonical" href="https://rateflowcurrency.netlify.app/">
+  <meta property="og:title" content="RateFlow — Free Real-Time Currency Converter | 170+ Currencies">
+  <meta property="og:description" content="170+ currencies including all African currencies. Live rates, no signup, always free.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://rateflowcurrency.netlify.app/">
+  <meta property="og:image" content="https://rateflowcurrency.netlify.app/icon-512.png">
+  <meta property="og:site_name" content="RateFlow">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="RateFlow — Free Currency Converter | 170+ Currencies">
+  <meta name="twitter:description" content="Live rates for 170+ currencies including all African currencies. Free, no signup.">
+  <meta name="twitter:image" content="https://rateflowcurrency.netlify.app/icon-512.png">
+  <meta name="google-site-verification" content="GKNVodeIG9RQX6SUHoXPT51EK4NYIcYMNSe5djwQMNM">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon.png">
+  <link rel="apple-touch-icon" href="icon-192.png">
+  <link rel="manifest" href="site.webmanifest">
+  <link rel="stylesheet" href="styles.css">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8121112277976862" crossorigin="anonymous"></script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"RateFlow Currency Converter","url":"https://rateflowcurrency.netlify.app/","description":"Free real-time currency converter with 170+ currencies including all African currencies.","applicationCategory":"FinanceApplication","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}</script>
+  <style>
+    /* ── Hero ── */
+    .hero{min-height:calc(100vh - var(--nav-h));display:flex;flex-direction:column;align-items:center;justify-content:center;padding:60px 16px 56px;position:relative;overflow:hidden;text-align:center;}
+    .orbs{position:absolute;inset:0;pointer-events:none;overflow:hidden;}
+    .orb{position:absolute;border-radius:50%;filter:blur(90px);opacity:.12;animation:orbFloat 12s ease-in-out infinite alternate;}
+    .orb-1{width:460px;height:460px;background:#3dffa0;top:-120px;left:-160px;animation-duration:14s;}
+    .orb-2{width:360px;height:360px;background:#1de8c4;top:30%;right:-100px;animation-duration:10s;animation-delay:-3s;}
+    .orb-3{width:260px;height:260px;background:#0ea5e9;bottom:-60px;left:42%;animation-duration:16s;animation-delay:-7s;}
+    @keyframes orbFloat{0%{transform:translate(0,0)scale(1);}100%{transform:translate(36px,28px)scale(1.08);}}
+    .hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(61,255,160,.1);border:1px solid rgba(61,255,160,.25);border-radius:100px;padding:6px 16px;font-size:13px;font-weight:500;color:var(--gradient-start);margin-bottom:20px;}
+    .live-dot{width:7px;height:7px;background:var(--gradient-start);border-radius:50%;animation:pulse 2s infinite;flex-shrink:0;}
+    @keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+    .hero h1{font-size:clamp(28px,6.5vw,64px);font-weight:900;letter-spacing:-2px;line-height:1.08;margin-bottom:16px;max-width:700px;}
+    .hero-sub{color:var(--text-secondary);font-size:clamp(13px,2vw,16px);max-width:480px;margin:0 auto 40px;line-height:1.7;}
+    /* Converter card */
+    .conv-card{width:100%;max-width:520px;padding:24px 20px 20px;}
+    .conv-label{font-size:11px;font-weight:700;color:var(--text-tertiary);text-transform:uppercase;letter-spacing:.9px;margin-bottom:7px;}
+    .conv-row{display:flex;gap:8px;align-items:stretch;margin-bottom:12px;}
+    .conv-amount{flex:1;background:var(--bg-input);border:1px solid var(--border);border-radius:var(--radius-sm);padding:0 14px;color:var(--text-primary);font-family:'JetBrains Mono',monospace;font-size:clamp(16px,4vw,22px);font-weight:500;outline:none;transition:border-color .2s,box-shadow .2s;height:56px;min-width:0;width:100%;}
+    .conv-amount:focus{border-color:var(--gradient-start);box-shadow:0 0 0 3px rgba(61,255,160,.1);}
+    .conv-amount[readonly]{color:var(--gradient-mid);cursor:default;}
+    .swap-row{display:flex;align-items:center;justify-content:space-between;margin:0 0 12px;gap:8px;}
+    .rate-info{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--text-tertiary);display:flex;align-items:center;gap:5px;flex:1;min-width:0;}
+    .rate-info span{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+    .swap-btn{width:38px;height:38px;background:rgba(61,255,160,.1);border:1px solid rgba(61,255,160,.2);border-radius:50%;color:var(--gradient-start);cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .3s;flex-shrink:0;}
+    .swap-btn:hover{background:rgba(61,255,160,.2);transform:rotate(180deg);}
+    .swap-btn img{width:16px;height:16px;filter:var(--icon-filter);}
+    .conv-actions{display:flex;gap:8px;margin-top:6px;}
+    .copy-btn{flex:1;padding:12px;font-size:13px;font-weight:700;background:rgba(61,255,160,.1);border:1px solid rgba(61,255,160,.2);border-radius:var(--radius-sm);color:var(--gradient-start);cursor:pointer;transition:all .2s;display:flex;align-items:center;justify-content:center;gap:6px;}
+    .copy-btn:hover{background:rgba(61,255,160,.18);}
+    .fav-btn{width:44px;height:44px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-sm);cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .2s;flex-shrink:0;}
+    .fav-btn:hover,.fav-btn.active{border-color:var(--gradient-start);background:rgba(61,255,160,.08);}
+    .fav-btn svg{width:18px;height:18px;stroke:var(--gradient-start);fill:none;transition:fill .2s;}
+    .fav-btn.active svg{fill:var(--gradient-start);}
+    .error-msg{display:none;background:rgba(255,80,80,.1);border:1px solid rgba(255,80,80,.25);color:#ff8080;border-radius:var(--radius-xs);padding:9px 13px;font-size:13px;margin-top:8px;}
+    .error-msg.show{display:block;}
+    .nudge{margin-top:12px;font-size:12px;color:var(--text-tertiary);text-align:center;}
+    .nudge a{color:var(--gradient-mid);}
+    /* Rates */
+    .rates-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:10px;}
+    .rate-row{display:flex;align-items:center;justify-content:space-between;padding:13px 16px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-sm);transition:border-color .2s,background .2s;cursor:pointer;}
+    .rate-row:hover{border-color:rgba(61,255,160,.25);background:var(--bg-card-hover);}
+    .rate-pair{display:flex;align-items:center;gap:9px;}
+    .rate-flag{font-size:20px;line-height:1;}
+    .rate-code{font-size:13px;font-weight:600;}
+    .rate-name{font-size:11px;color:var(--text-tertiary);margin-top:1px;}
+    .rate-val{font-family:'JetBrains Mono',monospace;font-size:14px;font-weight:600;color:var(--gradient-start);}
+    .rates-updated{font-size:11px;color:var(--text-tertiary);margin-top:12px;font-family:'JetBrains Mono',monospace;}
+    .rates-filter{display:flex;gap:8px;margin-bottom:18px;flex-wrap:wrap;}
+    .filter-btn{padding:6px 14px;border-radius:100px;font-size:12px;font-weight:600;border:1px solid var(--border);background:transparent;color:var(--text-secondary);cursor:pointer;transition:all .2s;}
+    .filter-btn.active,.filter-btn:hover{border-color:var(--gradient-start);background:rgba(61,255,160,.08);color:var(--gradient-start);}
+    /* Features */
+    .features-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
+    .feature-card{padding:24px 20px;transition:transform .3s,border-color .3s;}
+    .feature-card:hover{transform:translateY(-4px);border-color:rgba(61,255,160,.25);}
+    .feature-icon{width:42px;height:42px;background:rgba(61,255,160,.1);border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:12px;color:var(--gradient-start);}
+    .feature-icon svg{width:20px;height:20px;}
+    .feature-card h3{font-size:15px;font-weight:700;margin-bottom:6px;}
+    .feature-card p{color:var(--text-secondary);font-size:13px;line-height:1.65;}
+    /* Blog preview */
+    .blog-preview-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
+    .bp-card{display:flex;flex-direction:column;text-decoration:none;color:inherit;border-radius:var(--radius);overflow:hidden;border:1px solid var(--border);background:var(--bg-card);transition:transform .3s,border-color .3s;}
+    .bp-card:hover{transform:translateY(-4px);border-color:rgba(61,255,160,.3);}
+    .bp-card-header{height:100px;display:flex;align-items:flex-end;padding:12px;}
+    .bp-cat{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;background:rgba(255,255,255,.16);backdrop-filter:blur(8px);padding:4px 10px;border-radius:100px;color:#fff;}
+    .bp-card-body{padding:16px 18px 20px;flex:1;display:flex;flex-direction:column;}
+    .bp-card-body h3{font-size:14px;font-weight:700;margin-bottom:6px;line-height:1.4;}
+    .bp-card-body p{color:var(--text-secondary);font-size:12px;line-height:1.6;flex:1;}
+    .bp-read{color:var(--gradient-start);font-size:12px;font-weight:600;margin-top:12px;}
+    /* Affiliate */
+    .aff-section{background:rgba(61,255,160,.04);border:1px solid rgba(61,255,160,.15);border-left:4px solid var(--gradient-start);border-radius:0 var(--radius) var(--radius) 0;padding:36px;max-width:1200px;margin:0 auto;}
+    .aff-section h2{font-size:24px;font-weight:800;margin-bottom:10px;}
+    .aff-section p{color:var(--text-secondary);font-size:15px;margin-bottom:22px;max-width:560px;}
+    .aff-disc{font-size:11px;color:var(--text-tertiary);font-style:italic;margin-top:10px;}
+    /* Responsive */
+    @media(max-width:900px){.features-grid{grid-template-columns:1fr 1fr;}.blog-preview-grid{grid-template-columns:1fr 1fr;}}
+    @media(max-width:580px){
+      .features-grid,.blog-preview-grid{grid-template-columns:1fr;}
+      .hero{padding:64px 16px 44px;min-height:auto;}
+      .conv-card{padding:18px 14px 16px;}
+      .conv-amount{font-size:16px;height:50px;}
+      .ss-btn{height:50px;min-width:88px;}
+      .aff-section{padding:22px 16px;}
+      .rates-grid{grid-template-columns:1fr 1fr;}
+    }
+    @media(max-width:360px){
+      .rates-grid{grid-template-columns:1fr;}
+      .hero h1{letter-spacing:-1px;}
+    }
+  </style>
+</head>
+<body>
+<nav class="navbar" id="navbar"></nav>
+
+<section class="hero" id="converter">
+  <div class="orbs"><div class="orb orb-1"></div><div class="orb orb-2"></div><div class="orb orb-3"></div></div>
+  <div class="hero-badge"><span class="live-dot"></span> Live Rates &middot; 170+ Currencies incl. Africa</div>
+  <h1>Exchange Rates.<br><span class="gradient-text">Real-Time. Always Free.</span></h1>
+  <p class="hero-sub">Live rates for 170+ currencies — XAF, NGN, KES, GHS, ZAR and every major African currency. No signup, no fees.</p>
+
+  <div class="glass conv-card">
+    <div class="conv-label">From</div>
+    <div class="conv-row">
+      <input type="number" id="amount" class="conv-amount" value="1" min="0" step="any" aria-label="Amount to convert" inputmode="decimal">
+      <div class="ss-wrap" id="from-wrap"></div>
+    </div>
+    <div class="swap-row">
+      <div class="rate-info"><span class="live-dot"></span><span id="rate-text">Loading&hellip;</span></div>
+      <button class="swap-btn" id="swap-btn" aria-label="Swap currencies" title="Swap currencies">
+        <img src="icons/swap.svg" alt="">
+      </button>
+    </div>
+    <div class="conv-label">To</div>
+    <div class="conv-row">
+      <input type="text" id="result" class="conv-amount" readonly placeholder="—" aria-label="Converted amount">
+      <div class="ss-wrap" id="to-wrap"></div>
+    </div>
+    <div class="conv-actions">
+      <button class="copy-btn" id="copy-btn" title="Copy result to clipboard">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+        Copy Result
+      </button>
+      <button class="fav-btn" id="fav-btn" title="Save to favorites" aria-label="Save pair to favorites">
+        <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+      </button>
+    </div>
+    <div class="error-msg" id="error-msg">Unable to fetch rates. Please check your connection.</div>
+    <p class="nudge">Sending money abroad? <a href="#affiliate">Get the real exchange rate &rarr;</a></p>
+  </div>
+</section>
+
+<div class="ad-leaderboard"><p class="ad-label">Advertisement</p>
+  <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-8121112277976862" data-ad-slot="YOUR_SLOT_ID_1" data-ad-format="auto" data-full-width-responsive="true"></ins>
+  <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+</div>
+
+<section class="section" id="rates">
+  <div class="section-inner">
+    <h2 class="section-title">Live <span class="gradient-text">Exchange Rates</span></h2>
+    <p class="section-subtitle">Major world &amp; African currencies vs USD. Tap any row to convert instantly.</p>
+    <div class="rates-filter">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="african">African</button>
+      <button class="filter-btn" data-filter="major">Major</button>
+    </div>
+    <div class="rates-grid" id="rates-grid">
+      <div class="rate-row" style="opacity:.4"><div class="rate-pair"><span class="rate-flag">⏳</span><div><div class="rate-code">Loading…</div></div></div></div>
+    </div>
+    <p class="rates-updated" id="rates-updated"></p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-inner">
+    <h2 class="section-title">Why <span class="gradient-text">RateFlow?</span></h2>
+    <p class="section-subtitle">Built for the African diaspora and anyone who needs accurate, honest rates fast.</p>
+    <div class="features-grid">
+      <div class="glass feature-card">
+        <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
+        <h3>Real-Time Rates</h3>
+        <p>Live rates from open.er-api.com, updated every hour. 170+ currencies, always current.</p>
+      </div>
+      <div class="glass feature-card">
+        <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
+        <h3>All African Currencies</h3>
+        <p>XAF, XOF, NGN, KES, GHS, ZAR, EGP, MAD, ETB and 30+ more African currencies fully supported.</p>
+      </div>
+      <div class="glass feature-card">
+        <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
+        <h3>100% Free</h3>
+        <p>No signup, no email, no credit card. Open the app and get your rate. Forever free.</p>
+      </div>
+      <div class="glass feature-card">
+        <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
+        <h3>Historical Charts</h3>
+        <p>View 7, 30, or 90-day rate history. Spot trends and plan your transfers.</p>
+      </div>
+      <div class="glass feature-card">
+        <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg></div>
+        <h3>Rate Alerts</h3>
+        <p>Set a target rate and get notified when the market reaches your price. Never miss a good rate.</p>
+      </div>
+      <div class="glass feature-card">
+        <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+        <h3>Favorites</h3>
+        <p>Save your most-used currency pairs for instant one-tap access every visit.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="affiliate">
+  <div class="aff-section">
+    <h2>Sending Money Abroad?</h2>
+    <p>Banks charge 2–4% hidden margins on top of their exchange rates. Modern transfer services use the real mid-market rate with transparent fees — so more money reaches your family.</p>
+    <a href="blog/wise-cheapest-way-send-money-abroad" class="btn-gradient">Compare Transfer Services &rarr;</a>
+    <p class="aff-disc">Some links are affiliate links. We may earn a small commission at no cost to you.</p>
+  </div>
+</section>
+
+<div class="ad-rect"><div><p class="ad-label">Advertisement</p>
+  <ins class="adsbygoogle" style="display:inline-block;width:300px;height:250px" data-ad-client="ca-pub-8121112277976862" data-ad-slot="YOUR_SLOT_ID_2"></ins>
+  <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+</div></div>
+
+<section class="section">
+  <div class="section-inner">
+    <h2 class="section-title">Currency &amp; <span class="gradient-text">Money Guides</span></h2>
+    <p class="section-subtitle">Practical guides to help you understand exchange rates and keep more of your money.</p>
+    <div class="blog-preview-grid">
+      <a href="blog/wise-cheapest-way-send-money-abroad" class="bp-card">
+        <div class="bp-card-header" style="background:linear-gradient(135deg,#00b980,#3dffa0)"><span class="bp-cat">Wise</span></div>
+        <div class="bp-card-body"><h3>Cheapest Way to Send Money Abroad</h3><p>Real fee comparison of Wise, Remitly, Western Union and banks.</p><span class="bp-read">Read More &rarr;</span></div>
+      </a>
+      <a href="blog/remitly-best-app-send-money-africa" class="bp-card">
+        <div class="bp-card-header" style="background:linear-gradient(135deg,#0070f3,#0ea5e9)"><span class="bp-cat">Remitly</span></div>
+        <div class="bp-card-body"><h3>Best App to Send Money to Africa</h3><p>Remitly vs Wise vs WorldRemit for Cameroon, Nigeria, Kenya and more.</p><span class="bp-read">Read More &rarr;</span></div>
+      </a>
+      <a href="blog/xaf-cfa-franc-guide" class="bp-card">
+        <div class="bp-card-header" style="background:linear-gradient(135deg,#0ea5e9,#3dffa0)"><span class="bp-cat">Africa</span></div>
+        <div class="bp-card-body"><h3>XAF (CFA Franc): A Complete Guide</h3><p>History, the Euro peg, conversions, and tips for Central Africa.</p><span class="bp-read">Read More &rarr;</span></div>
+      </a>
+    </div>
+    <div style="text-align:center;margin-top:32px"><a href="blog" class="btn-outline">View All Articles &rarr;</a></div>
+  </div>
+</section>
+
+<footer id="footer"></footer>
+<script src="shared-layout.js"></script>
+<script src="common.js"></script>
+<script>
+  initTheme();
+  injectNavbar('home');
+  injectFooter();
+  injectCookieBanner();
+
+  const amtInp  = document.getElementById('amount');
+  const resInp  = document.getElementById('result');
+  const rateTxt = document.getElementById('rate-text');
+  const errMsg  = document.getElementById('error-msg');
+  const favBtn  = document.getElementById('fav-btn');
+  const copyBtn = document.getElementById('copy-btn');
+  const fromWrap = document.getElementById('from-wrap');
+  const toWrap   = document.getElementById('to-wrap');
+  let currOptions = [];
+  let debounce;
+
+  const params  = new URLSearchParams(window.location.search);
+  let initFrom  = params.get('from') || 'USD';
+  let initTo    = params.get('to')   || 'XAF';
+
+  async function populateSelects() {
+    try {
+      const currencies = await fetchCurrencies();
+      currOptions = buildCurrencyOptions(currencies);
+      buildSearchSelect(fromWrap, [...currOptions], initFrom, () => updateRate());
+      buildSearchSelect(toWrap,   [...currOptions], initTo,   () => updateRate());
+      updateRate();
+    } catch(e) {
+      errMsg.classList.add('show');
+      errMsg.textContent = 'Unable to load currencies. Please refresh the page.';
+    }
+  }
+
+  async function updateRate() {
+    const from = fromWrap._ssGetValue?.();
+    const to   = toWrap._ssGetValue?.();
+    const amount = parseFloat(amtInp.value) || 1;
+    if (!from || !to) return;
+    if (from === to) {
+      resInp.value = formatAmount(amount);
+      rateTxt.textContent = `1 ${from} = 1.0000 ${to}`;
+      return;
+    }
+    errMsg.classList.remove('show');
+    rateTxt.textContent = 'Fetching…';
+    try {
+      const { rate, date } = await fetchRate(from, to);
+      resInp.value = formatAmount(amount * rate);
+      rateTxt.textContent = `1 ${from} = ${formatAmount(rate)} ${to} · ${date}`;
+      updateFavBtn();
+    } catch {
+      errMsg.classList.add('show');
+      rateTxt.textContent = 'Rate unavailable';
+    }
+  }
+
+  function updateFavBtn() {
+    const from = fromWrap._ssGetValue?.();
+    const to   = toWrap._ssGetValue?.();
+    if (!from || !to) return;
+    const active = isFavorite(from, to);
+    favBtn.classList.toggle('active', active);
+    favBtn.title = active ? 'Remove from favorites' : 'Save to favorites';
+  }
+
+  amtInp.addEventListener('input', () => { clearTimeout(debounce); debounce = setTimeout(updateRate, 300); });
+
+  document.getElementById('swap-btn').addEventListener('click', () => {
+    const from = fromWrap._ssGetValue?.();
+    const to   = toWrap._ssGetValue?.();
+    if (!from || !to) return;
+    fromWrap._ssSetValue(to);
+    toWrap._ssSetValue(from);
+    updateRate();
+  });
+
+  copyBtn.addEventListener('click', () => {
+    const from = fromWrap._ssGetValue?.();
+    const to   = toWrap._ssGetValue?.();
+    const val  = resInp.value;
+    if (!val || val === '—') { showToast('Nothing to copy yet.'); return; }
+    const text = `${amtInp.value} ${from} = ${val} ${to}`;
+    navigator.clipboard?.writeText(text).then(() => showToast(`Copied: ${text}`)).catch(() => {
+      const ta = document.createElement('textarea'); ta.value=text;
+      document.body.appendChild(ta); ta.select(); document.execCommand('copy'); ta.remove();
+      showToast('Copied!');
+    });
+  });
+
+  favBtn.addEventListener('click', () => {
+    const from = fromWrap._ssGetValue?.();
+    const to   = toWrap._ssGetValue?.();
+    if (!from || !to) return;
+    const added = toggleFavorite(from, to);
+    updateFavBtn();
+    showToast(added ? `${from}/${to} saved to Favorites` : 'Removed from Favorites');
+  });
+
+  /* Rates table */
+  const AFRICAN_CODES = ['XAF','XOF','NGN','KES','GHS','ZAR','EGP','MAD','ETB','TZS','UGX','RWF','AOA','MZN','NAD','BWP','MUR','DZD','TND','LYD'];
+  const MAJOR_CODES   = ['EUR','GBP','JPY','CAD','CHF','AUD','CNY','INR','MXN','BRL','SGD','HKD'];
+  let allRates = {}, currentFilter = 'all';
+
+  async function loadRatesTable() {
+    const grid = document.getElementById('rates-grid');
+    const upd  = document.getElementById('rates-updated');
+    try {
+      const data = await fetchAllRates('USD');
+      allRates = data.rates;
+      renderRates();
+      upd.textContent = `Last updated: ${data.date} · Source: open.er-api.com`;
+    } catch {
+      grid.innerHTML = '<p style="color:var(--text-tertiary);padding:16px">Unable to load rates. Please refresh.</p>';
+    }
+  }
+
+  function renderRates() {
+    const grid  = document.getElementById('rates-grid');
+    const codes = currentFilter==='african' ? AFRICAN_CODES
+                : currentFilter==='major'   ? MAJOR_CODES
+                : [...MAJOR_CODES, ...AFRICAN_CODES];
+    grid.innerHTML = '';
+    codes.forEach(code => {
+      const rate = allRates[code]; if (!rate) return;
+      const row = document.createElement('div');
+      row.className='rate-row';
+      row.setAttribute('role','button'); row.setAttribute('tabindex','0');
+      row.setAttribute('aria-label',`Convert USD to ${code}`);
+      row.innerHTML = `<div class="rate-pair"><span class="rate-flag">${getFlag(code)}</span><div><div class="rate-code">USD / ${code}</div><div class="rate-name">${CURRENCY_NAMES[code]||code}</div></div></div><span class="rate-val">${formatAmount(rate)}</span>`;
+      const go = () => {
+        fromWrap._ssSetValue('USD');
+        toWrap._ssSetValue(code);
+        updateRate();
+        document.getElementById('converter').scrollIntoView({behavior:'smooth'});
+      };
+      row.addEventListener('click', go);
+      row.addEventListener('keydown', e => { if(e.key==='Enter'||e.key===' ') go(); });
+      grid.appendChild(row);
+    });
+  }
+
+  document.querySelectorAll('.filter-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
+      btn.classList.add('active'); currentFilter=btn.dataset.filter; renderRates();
+    });
+  });
+
+  populateSelects();
+  loadRatesTable();
+  checkAlerts();
+</script>
+</body>
+</html>

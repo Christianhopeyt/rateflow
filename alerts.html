@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>Currency Rate Alerts — Get Notified When Your Rate Hits | RateFlow</title>
+  <meta name="description" content="Set free currency rate alerts for any pair including African currencies. Get notified when USD/XAF, EUR/NGN or any rate reaches your target.">
+  <link rel="canonical" href="https://rateflowcurrency.netlify.app/alerts">
+  <meta property="og:title" content="Currency Rate Alerts — RateFlow">
+  <meta property="og:description" content="Free rate alerts for 170+ currencies. Set your target, we'll check the market.">
+  <meta property="og:type" content="website"><meta property="og:url" content="https://rateflowcurrency.netlify.app/alerts">
+  <meta property="og:image" content="https://rateflowcurrency.netlify.app/icon-512.png">
+  <script>(function(){var t=localStorage.getItem('rf-theme')||'dark';document.documentElement.setAttribute('data-theme',t);})();</script>
+  <meta name="google-site-verification" content="GKNVodeIG9RQX6SUHoXPT51EK4NYIcYMNSe5djwQMNM">
+  <link rel="icon" type="image/x-icon" href="favicon.ico"><link rel="icon" type="image/png" sizes="32x32" href="favicon.png">
+  <link rel="apple-touch-icon" href="icon-192.png"><link rel="manifest" href="site.webmanifest">
+  <link rel="stylesheet" href="styles.css">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8121112277976862" crossorigin="anonymous"></script>
+  <style>
+    .alerts-hero{padding:72px 20px 40px;text-align:center;}
+    .alerts-hero h1{font-size:clamp(28px,5vw,46px);font-weight:900;letter-spacing:-1px;margin-bottom:10px;}
+    .alerts-hero p{color:var(--text-secondary);font-size:16px;max-width:460px;margin:0 auto;}
+    .alerts-wrap{max-width:720px;margin:0 auto;padding:0 20px 80px;display:flex;flex-direction:column;gap:24px;}
+    .card{padding:28px;}
+    .card h2{font-size:17px;font-weight:800;margin-bottom:20px;display:flex;align-items:center;gap:8px;}
+    .card h2 img{width:20px;height:20px;filter:invert(73%) sepia(49%) saturate(443%) hue-rotate(103deg);}
+    .field{margin-bottom:14px;}
+    .field label{display:block;font-size:11px;font-weight:700;color:var(--text-tertiary);text-transform:uppercase;letter-spacing:.8px;margin-bottom:6px;}
+    .field input,.field select{width:100%;background:var(--bg-input);border:1px solid var(--border);border-radius:var(--radius-sm);padding:11px 14px;color:var(--text-primary);font-family:'Inter',sans-serif;font-size:14px;outline:none;transition:border-color .2s;}
+    .field input:focus,.field select:focus{border-color:var(--gradient-start);box-shadow:0 0 0 3px rgba(61,255,160,.09);}
+    .field select option{background:var(--select-bg)!important;color:var(--select-color)!important;}
+    .row2{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+    .alert-item{display:flex;align-items:center;justify-content:space-between;padding:14px 16px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-sm);gap:12px;flex-wrap:wrap;}
+    .alert-item.triggered{border-color:rgba(61,255,160,.4);background:rgba(61,255,160,.04);}
+    .alert-info{flex:1;}
+    .alert-pair{font-size:14px;font-weight:700;}
+    .alert-detail{font-size:12px;color:var(--text-tertiary);font-family:'JetBrains Mono',monospace;margin-top:2px;}
+    .alert-badge{font-size:11px;font-weight:700;padding:3px 10px;border-radius:100px;border:1px solid;}
+    .alert-badge.active{color:var(--gradient-start);border-color:rgba(61,255,160,.3);background:rgba(61,255,160,.08);}
+    .alert-badge.done{color:var(--text-tertiary);border-color:var(--border);}
+    .del-btn{background:rgba(255,80,80,.1);border:1px solid rgba(255,80,80,.2);color:#ff8080;border-radius:var(--radius-xs);padding:6px 12px;font-size:12px;cursor:pointer;transition:all .2s;white-space:nowrap;}
+    .del-btn:hover{background:rgba(255,80,80,.2);}
+    .empty-state{text-align:center;padding:32px 20px;color:var(--text-tertiary);font-size:14px;}
+    .live-rate-disp{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--gradient-mid);margin-top:8px;min-height:18px;}
+    @media(max-width:500px){.row2{grid-template-columns:1fr;}}
+  </style>
+</head>
+<body>
+<nav class="navbar" id="navbar"></nav>
+<div class="alerts-hero">
+  <h1>Rate <span class="gradient-text">Alerts</span></h1>
+  <p>Set a target rate and RateFlow will check it every time you visit — no account needed.</p>
+</div>
+<div class="alerts-wrap">
+  <div class="glass card">
+    <h2><img src="icons/bell.svg" alt=""> Create New Alert</h2>
+    <div class="row2">
+      <div class="field"><label>From Currency</label><div class="ss-wrap" id="al-from-wrap"></div></div>
+      <div class="field"><label>To Currency</label><div class="ss-wrap" id="al-to-wrap"></div></div>
+    </div>
+    <div id="al-live" class="live-rate-disp">— Loading live rate…</div>
+    <div class="row2" style="margin-top:14px">
+      <div class="field"><label>Target Rate</label><input type="number" id="al-target" step="any" placeholder="e.g. 660"></div>
+      <div class="field"><label>Alert When Rate Is</label>
+        <select id="al-dir">
+          <option value="above">Above target</option>
+          <option value="below">Below target</option>
+        </select>
+      </div>
+    </div>
+    <button class="btn-gradient" id="al-add" style="width:100%;padding:13px;font-size:15px;margin-top:4px">
+      <img src="icons/bell.svg" alt="" style="width:17px;height:17px;filter:invert(1)"> Set Alert
+    </button>
+  </div>
+
+  <div class="glass card">
+    <h2><img src="icons/star.svg" alt=""> Your Alerts</h2>
+    <div id="alerts-list"><div class="empty-state">No alerts yet. Create one above.</div></div>
+  </div>
+
+  <div class="glass card" style="padding:20px 24px">
+    <h4 style="font-size:13px;color:var(--text-tertiary);font-weight:600">How it works</h4>
+    <p style="font-size:13px;color:var(--text-secondary);margin-top:8px;line-height:1.7">Alerts are stored in your browser. Each time you open RateFlow, we check the live rate against your target and show a notification if it's been reached. No email required.</p>
+  </div>
+</div>
+
+<footer id="footer"></footer>
+<script src="shared-layout.js"></script>
+<script src="common.js"></script>
+<script>
+  initTheme(); injectNavbar('alerts'); injectFooter(); injectCookieBanner();
+
+  async function populateSels() {
+    const currencies = await fetchCurrencies();
+    const opts = buildCurrencyOptions(currencies);
+    buildSearchSelect(document.getElementById('al-from-wrap'), [...opts], 'USD', loadLiveRate);
+    buildSearchSelect(document.getElementById('al-to-wrap'),   [...opts], 'XAF', loadLiveRate);
+    loadLiveRate();
+  }
+
+  async function loadLiveRate() {
+    const from=document.getElementById('al-from-wrap')?._ssGetValue?.()||'USD', to=document.getElementById('al-to-wrap')?._ssGetValue?.()||'XAF';
+    const el=document.getElementById('al-live');
+    el.textContent='Loading live rate…';
+    try { const {rate,date}=await fetchRate(from,to); el.textContent=`Live: 1 ${from} = ${rate.toFixed(5)} ${to} · ${date}`; }
+    catch { el.textContent='Unable to fetch live rate.'; }
+  }
+
+  // selects wired via buildSearchSelect
+  
+
+  document.getElementById('al-add').addEventListener('click', () => {
+    const from=document.getElementById('al-from-wrap')?._ssGetValue?.()||'USD', to=document.getElementById('al-to-wrap')?._ssGetValue?.()||'XAF';
+    const target=document.getElementById('al-target').value, dir=document.getElementById('al-dir').value;
+    if (!target||isNaN(target)) { showToast('Please enter a valid target rate.'); return; }
+    addAlert(from,to,target,dir);
+    document.getElementById('al-target').value='';
+    renderAlerts();
+    showToast(`Alert set: ${from}/${to} ${dir} ${target}`);
+  });
+
+  function renderAlerts() {
+    const list=document.getElementById('alerts-list');
+    const alerts=getAlerts();
+    if (!alerts.length) { list.innerHTML='<div class="empty-state">No alerts yet. Create one above.</div>'; return; }
+    list.innerHTML='';
+    [...alerts].reverse().forEach(a => {
+      const div=document.createElement('div');
+      div.className='alert-item'+(a.triggered?' triggered':'');
+      div.innerHTML=`<div class="alert-info"><div class="alert-pair">${getFlag(a.from)} ${a.from} / ${getFlag(a.to)} ${a.to}</div><div class="alert-detail">${a.direction==='above'?'↑ Above':'↓ Below'} ${a.targetRate} · Set ${new Date(a.created).toLocaleDateString()}</div></div><span class="alert-badge ${a.triggered?'done':'active'}">${a.triggered?'Triggered':'Active'}</span><button class="del-btn" data-id="${a.id}">Remove</button>`;
+      list.appendChild(div);
+    });
+    list.querySelectorAll('.del-btn').forEach(btn => btn.addEventListener('click', () => { removeAlert(parseInt(btn.dataset.id)); renderAlerts(); showToast('Alert removed.'); }));
+  }
+
+  populateSels().then(() => { renderAlerts(); checkAlerts().then(renderAlerts); });
+</script>
+</body>
+</html>

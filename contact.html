@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <script>(function(){var t=localStorage.getItem('rf-theme')||'dark';document.documentElement.setAttribute('data-theme',t);})();</script><meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>Contact RateFlow — Get in Touch | RateFlow Currency Converter</title>
+  <meta name="description" content="Contact RateFlow with questions, suggestions, partnership enquiries or bug reports. We reply within 2 business days.">
+  <link rel="canonical" href="https://rateflowcurrency.netlify.app/contact">
+  <meta property="og:title" content="Contact RateFlow"><meta property="og:type" content="website">
+  <meta property="og:url" content="https://rateflowcurrency.netlify.app/contact">
+  <meta property="og:image" content="https://rateflowcurrency.netlify.app/icon-512.png">
+  <meta name="google-site-verification" content="GKNVodeIG9RQX6SUHoXPT51EK4NYIcYMNSe5djwQMNM">
+  <link rel="icon" type="image/x-icon" href="favicon.ico"><link rel="apple-touch-icon" href="icon-192.png"><link rel="manifest" href="site.webmanifest">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .contact-wrap{max-width:720px;margin:0 auto;padding:64px 20px 80px;display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:start;}
+    .contact-info h1{font-size:clamp(26px,4vw,40px);font-weight:900;letter-spacing:-1px;margin-bottom:14px;}
+    .contact-info p{color:var(--text-secondary);font-size:15px;line-height:1.75;margin-bottom:20px;}
+    .contact-detail{display:flex;align-items:center;gap:12px;padding:16px 18px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-sm);margin-bottom:12px;text-decoration:none;transition:border-color .2s;}
+    .contact-detail:hover{border-color:rgba(61,255,160,.3);}
+    .contact-detail img{width:20px;height:20px;filter:invert(73%) sepia(49%) saturate(443%) hue-rotate(103deg);flex-shrink:0;}
+    .contact-detail-text .label{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:var(--text-tertiary);}
+    .contact-detail-text .val{font-size:14px;color:var(--text-primary);font-weight:600;margin-top:2px;}
+    .contact-form{padding:28px;}
+    .contact-form h2{font-size:17px;font-weight:800;margin-bottom:20px;}
+    .field{margin-bottom:16px;}
+    .field label{display:block;font-size:11px;font-weight:700;color:var(--text-tertiary);text-transform:uppercase;letter-spacing:.8px;margin-bottom:6px;}
+    .field input,.field textarea,.field select{width:100%;background:var(--bg-input);border:1px solid var(--border);border-radius:var(--radius-sm);padding:11px 14px;color:var(--text-primary);font-family:'Inter',sans-serif;font-size:14px;outline:none;transition:border-color .2s;resize:none;}
+    .field input:focus,.field textarea:focus,.field select:focus{border-color:var(--gradient-start);box-shadow:0 0 0 3px rgba(61,255,160,.09);}
+    .field textarea{min-height:120px;}
+    .field select option{background:var(--select-bg)!important;color:var(--select-color)!important;}
+    .success-msg{display:none;background:rgba(61,255,160,.08);border:1px solid rgba(61,255,160,.25);border-radius:var(--radius-sm);padding:14px 18px;font-size:14px;color:var(--gradient-start);margin-top:12px;}
+    .success-msg.show{display:block;}
+    @media(max-width:640px){.contact-wrap{grid-template-columns:1fr;padding:48px 16px 64px;}}
+  </style>
+</head>
+<body>
+<nav class="navbar" id="navbar"></nav>
+<div class="contact-wrap">
+  <div class="contact-info">
+    <h1>Get in <span class="gradient-text">Touch</span></h1>
+    <p>Have a question, spotted a bug, or want to discuss a partnership? We'd love to hear from you. We respond within 2 business days.</p>
+    <a href="mailto:rateflowcurrency@gmail.com" class="contact-detail">
+      <img src="icons/mail.svg" alt="email">
+      <div class="contact-detail-text"><div class="label">Email</div><div class="val">rateflowcurrency@gmail.com</div></div>
+    </a>
+    <div class="contact-detail" style="cursor:default">
+      <img src="icons/globe.svg" alt="location">
+      <div class="contact-detail-text"><div class="label">Response time</div><div class="val">Within 2 business days</div></div>
+    </div>
+    <div class="contact-detail" style="cursor:default">
+      <img src="icons/info.svg" alt="info">
+      <div class="contact-detail-text"><div class="label">For urgent matters</div><div class="val">Mark subject line URGENT</div></div>
+    </div>
+  </div>
+  <div class="glass contact-form">
+    <h2>Send a Message</h2>
+    <div class="field"><label>Your Name</label><input type="text" id="cf-name" placeholder="Jane Doe"></div>
+    <div class="field"><label>Email Address</label><input type="email" id="cf-email" placeholder="you@example.com"></div>
+    <div class="field"><label>Subject</label>
+      <select id="cf-subject">
+        <option value="">Select a topic…</option>
+        <option value="bug">Bug report</option>
+        <option value="feedback">Feedback / suggestion</option>
+        <option value="partnership">Partnership / affiliate</option>
+        <option value="press">Press enquiry</option>
+        <option value="other">Other</option>
+      </select>
+    </div>
+    <div class="field"><label>Message</label><textarea id="cf-msg" placeholder="Tell us how we can help…"></textarea></div>
+    <button class="btn-gradient" id="cf-submit" style="width:100%;padding:13px;font-size:15px">Send Message</button>
+    <div class="success-msg" id="cf-success">✅ Thanks for reaching out! We'll reply to <span id="cf-reply-email"></span> within 2 business days.</div>
+  </div>
+</div>
+<footer id="footer"></footer>
+<script src="shared-layout.js"></script>
+<script src="common.js"></script>
+<script>
+  initTheme(); injectNavbar('contact'); injectFooter();
+  document.getElementById('cf-submit').addEventListener('click', () => {
+    const name=document.getElementById('cf-name').value.trim();
+    const email=document.getElementById('cf-email').value.trim();
+    const msg=document.getElementById('cf-msg').value.trim();
+    if (!name||!email||!msg) { showToast('Please fill in all required fields.'); return; }
+    if (!/^[^@]+@[^@]+\.[^@]+$/.test(email)) { showToast('Please enter a valid email address.'); return; }
+    // mailto fallback — opens mail client
+    const subject=document.getElementById('cf-subject').value||'RateFlow Enquiry';
+    const body=`Name: ${name}\nEmail: ${email}\n\n${msg}`;
+    window.location.href=`mailto:rateflowcurrency@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    document.getElementById('cf-reply-email').textContent = email;
+    document.getElementById('cf-success').classList.add('show');
+  });
+</script>
+</body></html>

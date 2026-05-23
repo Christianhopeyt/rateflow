@@ -1,0 +1,354 @@
+[build]
+  publish = "."
+  functions = "netlify/functions"
+
+# ════════════════════════════════════════
+# CLEAN URL ROUTING  (200 = serve file, no redirect)
+# Every clean URL maps to its .html file
+# ════════════════════════════════════════
+
+# Root pages — clean URL → html file
+[[redirects]]
+  from = "/about"
+  to   = "/about.html"
+  status = 200
+
+[[redirects]]
+  from = "/contact"
+  to   = "/contact.html"
+  status = 200
+
+[[redirects]]
+  from = "/blog"
+  to   = "/blog.html"
+  status = 200
+
+[[redirects]]
+  from = "/tools"
+  to   = "/tools.html"
+  status = 200
+
+[[redirects]]
+  from = "/alerts"
+  to   = "/alerts.html"
+  status = 200
+
+[[redirects]]
+  from = "/favorites"
+  to   = "/favorites.html"
+  status = 200
+
+[[redirects]]
+  from = "/guide"
+  to   = "/guide.html"
+  status = 200
+
+[[redirects]]
+  from = "/privacy-policy"
+  to   = "/privacy-policy.html"
+  status = 200
+
+[[redirects]]
+  from = "/terms"
+  to   = "/terms.html"
+  status = 200
+
+[[redirects]]
+  from = "/cookies"
+  to   = "/cookies.html"
+  status = 200
+
+# Blog articles — clean URL → html file
+[[redirects]]
+  from = "/blog/wise-cheapest-way-send-money-abroad"
+  to   = "/blog/wise-cheapest-way-send-money-abroad.html"
+  status = 200
+
+[[redirects]]
+  from = "/blog/wise-vs-bank-transfer-comparison"
+  to   = "/blog/wise-vs-bank-transfer-comparison.html"
+  status = 200
+
+[[redirects]]
+  from = "/blog/hidden-exchange-rate-fees-explained"
+  to   = "/blog/hidden-exchange-rate-fees-explained.html"
+  status = 200
+
+[[redirects]]
+  from = "/blog/wise-usd-to-xaf-transfer-guide"
+  to   = "/blog/wise-usd-to-xaf-transfer-guide.html"
+  status = 200
+
+[[redirects]]
+  from = "/blog/remitly-best-app-send-money-africa"
+  to   = "/blog/remitly-best-app-send-money-africa.html"
+  status = 200
+
+[[redirects]]
+  from = "/blog/remitly-fast-transfer-to-cameroon"
+  to   = "/blog/remitly-fast-transfer-to-cameroon.html"
+  status = 200
+
+[[redirects]]
+  from = "/blog/remitly-sending-money-to-family-abroad"
+  to   = "/blog/remitly-sending-money-to-family-abroad.html"
+  status = 200
+
+[[redirects]]
+  from = "/blog/western-union-cash-pickup-guide"
+  to   = "/blog/western-union-cash-pickup-guide.html"
+  status = 200
+
+[[redirects]]
+  from = "/blog/western-union-send-without-bank-account"
+  to   = "/blog/western-union-send-without-bank-account.html"
+  status = 200
+
+[[redirects]]
+  from = "/blog/western-union-emergency-transfer-guide"
+  to   = "/blog/western-union-emergency-transfer-guide.html"
+  status = 200
+
+[[redirects]]
+  from = "/blog/usd-to-eur-guide"
+  to   = "/blog/usd-to-eur-guide.html"
+  status = 200
+
+[[redirects]]
+  from = "/blog/best-time-to-exchange-currency"
+  to   = "/blog/best-time-to-exchange-currency.html"
+  status = 200
+
+[[redirects]]
+  from = "/blog/how-to-send-money-abroad"
+  to   = "/blog/how-to-send-money-abroad.html"
+  status = 200
+
+[[redirects]]
+  from = "/blog/xaf-cfa-franc-guide"
+  to   = "/blog/xaf-cfa-franc-guide.html"
+  status = 200
+
+# ════════════════════════════════════════
+# 301 REDIRECTS — old .html URLs → clean URLs
+# Keeps SEO juice for any existing links
+# ════════════════════════════════════════
+[[redirects]]
+  from = "/about.html"
+  to   = "/about"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/contact.html"
+  to   = "/contact"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/blog.html"
+  to   = "/blog"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/tools.html"
+  to   = "/tools"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/alerts.html"
+  to   = "/alerts"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/favorites.html"
+  to   = "/favorites"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/guide.html"
+  to   = "/guide"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/privacy-policy.html"
+  to   = "/privacy-policy"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/terms.html"
+  to   = "/terms"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/cookies.html"
+  to   = "/cookies"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/blog/wise-cheapest-way-send-money-abroad.html"
+  to   = "/blog/wise-cheapest-way-send-money-abroad"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/blog/wise-vs-bank-transfer-comparison.html"
+  to   = "/blog/wise-vs-bank-transfer-comparison"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/blog/hidden-exchange-rate-fees-explained.html"
+  to   = "/blog/hidden-exchange-rate-fees-explained"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/blog/wise-usd-to-xaf-transfer-guide.html"
+  to   = "/blog/wise-usd-to-xaf-transfer-guide"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/blog/remitly-best-app-send-money-africa.html"
+  to   = "/blog/remitly-best-app-send-money-africa"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/blog/remitly-fast-transfer-to-cameroon.html"
+  to   = "/blog/remitly-fast-transfer-to-cameroon"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/blog/remitly-sending-money-to-family-abroad.html"
+  to   = "/blog/remitly-sending-money-to-family-abroad"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/blog/western-union-cash-pickup-guide.html"
+  to   = "/blog/western-union-cash-pickup-guide"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/blog/western-union-send-without-bank-account.html"
+  to   = "/blog/western-union-send-without-bank-account"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/blog/western-union-emergency-transfer-guide.html"
+  to   = "/blog/western-union-emergency-transfer-guide"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/blog/usd-to-eur-guide.html"
+  to   = "/blog/usd-to-eur-guide"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/blog/best-time-to-exchange-currency.html"
+  to   = "/blog/best-time-to-exchange-currency"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/blog/how-to-send-money-abroad.html"
+  to   = "/blog/how-to-send-money-abroad"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/blog/xaf-cfa-franc-guide.html"
+  to   = "/blog/xaf-cfa-franc-guide"
+  status = 301
+  force = true
+
+# Legacy blog post IDs
+[[redirects]]
+  from = "/blog-post-1.html"
+  to   = "/blog/usd-to-eur-guide"
+  status = 301
+
+[[redirects]]
+  from = "/blog-post-2.html"
+  to   = "/blog/best-time-to-exchange-currency"
+  status = 301
+
+[[redirects]]
+  from = "/blog-post-3.html"
+  to   = "/blog/how-to-send-money-abroad"
+  status = 301
+
+[[redirects]]
+  from = "/blog-post-4.html"
+  to   = "/blog/xaf-cfa-franc-guide"
+  status = 301
+
+# API proxy
+[[redirects]]
+  from = "/api/rates"
+  to   = "/.netlify/functions/rates"
+  status = 200
+
+# ════════════════════════════════════════
+# SECURITY HEADERS
+# ════════════════════════════════════════
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "geolocation=(), microphone=(), camera=()"
+
+[[headers]]
+  for = "/*.html"
+  [headers.values]
+    Cache-Control = "public, max-age=3600, must-revalidate"
+    Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline' https://pagead2.googlesyndication.com https://www.googletagmanager.com https://www.google-analytics.com https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://www.google-analytics.com; frame-src https://googleads.g.doubleclick.net https://tpc.googlesyndication.com;"
+
+[[headers]]
+  for = "/blog/*.html"
+  [headers.values]
+    Cache-Control = "public, max-age=3600, must-revalidate"
+    Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline' https://pagead2.googlesyndication.com https://www.googletagmanager.com https://www.google-analytics.com https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://www.google-analytics.com; frame-src https://googleads.g.doubleclick.net https://tpc.googlesyndication.com;"
+
+[[headers]]
+  for = "/.netlify/functions/*"
+  [headers.values]
+    Cache-Control = "public, max-age=3600, s-maxage=3600"
+    Access-Control-Allow-Origin = "*"
+
+[[headers]]
+  for = "/*.css"
+  [headers.values]
+    Cache-Control = "public, max-age=604800, immutable"
+
+[[headers]]
+  for = "/*.js"
+  [headers.values]
+    Cache-Control = "public, max-age=604800, immutable"
+
+[[headers]]
+  for = "/sitemap.xml"
+  [headers.values]
+    Cache-Control = "public, max-age=86400"
+
+[[headers]]
+  for = "/robots.txt"
+  [headers.values]
+    Cache-Control = "public, max-age=86400"
