@@ -326,7 +326,11 @@
   [headers.values]
     Cache-Control = "public, max-age=3600, must-revalidate"
     Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline' https://pagead2.googlesyndication.com https://www.googletagmanager.com https://www.google-analytics.com https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://www.google-analytics.com; frame-src https://googleads.g.doubleclick.net https://tpc.googlesyndication.com;"
+<<<<<<< HEAD
 
+=======
+    
+>>>>>>> 7284cdbc07270bd3ed151e89fc899c775097b965
 [[headers]]
   for = "/.netlify/functions/*"
   [headers.values]

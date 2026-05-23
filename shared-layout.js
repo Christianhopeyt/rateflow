@@ -58,12 +58,20 @@ function injectNavbar(activePage) {
 
   nav.innerHTML = `
     <div class="nav-inner">
+<<<<<<< HEAD
       <a href="${r}index.html" class="nav-logo">
+=======
+      <a href="${r}" class="nav-logo">
+>>>>>>> 7284cdbc07270bd3ed151e89fc899c775097b965
         <div class="nav-logo-icon"><img src="${r}icon-192.png" alt="RateFlow" width="34" height="34"></div>
         <span class="nav-logo-text">RateFlow</span>
       </a>
       <ul class="nav-links">
+<<<<<<< HEAD
         <li><a href="${r}index.html" ${activePage==='home'?'class="active"':''}>Home</a></li>
+=======
+        <li><a href="${r}" ${activePage==='home'?'class="active"':''}>Home</a></li>
+>>>>>>> 7284cdbc07270bd3ed151e89fc899c775097b965
         <li class="nav-dropdown">
           <a href="${r}blog" class="nav-drop-trigger" ${activePage==='blog'?'class="active"':''}>
             Articles ${icon('chevron','nav-chevron')}
@@ -81,8 +89,13 @@ function injectNavbar(activePage) {
             Tools ${icon('chevron','nav-chevron')}
           </a>
           <ul class="nav-sub">
+<<<<<<< HEAD
             <li><a href="${r}index.html#converter">${icon('converter')} Currency Converter</a></li>
             <li><a href="${r}index.html#rates">${icon('rates')} Live Rates</a></li>
+=======
+            <li><a href="${r}#converter">${icon('converter')} Currency Converter</a></li>
+            <li><a href="${r}#rates">${icon('rates')} Live Rates</a></li>
+>>>>>>> 7284cdbc07270bd3ed151e89fc899c775097b965
             <li><a href="${r}tools">${icon('calculator')} Calculator Tools</a></li>
             <li><a href="${r}alerts">${icon('bell')} Rate Alerts</a></li>
             <li><a href="${r}favorites">${icon('star')} Favorites</a></li>
@@ -96,17 +109,28 @@ function injectNavbar(activePage) {
         <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark/light mode" title="Toggle dark/light mode">
           <img src="${r}icons/moon.svg" alt="Toggle theme" id="theme-icon" width="18" height="18">
         </button>
+<<<<<<< HEAD
         <a href="${r}index.html#affiliate" class="btn-gradient nav-cta-btn">Send Money</a>
+=======
+        <a href="${r}#affiliate" class="btn-gradient nav-cta-btn">Send Money</a>
+>>>>>>> 7284cdbc07270bd3ed151e89fc899c775097b965
         <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
           <span></span><span></span><span></span>
         </button>
       </div>
     </div>
     <div class="mobile-menu" id="mobile-menu" role="dialog" aria-hidden="true">
+<<<<<<< HEAD
       <a href="${r}index.html" ${activePage==='home'?'class="active"':''}>${icon('home','mob-icon')} Home</a>
       <div class="mob-section-label">Tools</div>
       <a href="${r}index.html#converter">${icon('converter','mob-icon')} Currency Converter</a>
       <a href="${r}index.html#rates">${icon('rates','mob-icon')} Live Rates</a>
+=======
+      <a href="${r}" ${activePage==='home'?'class="active"':''}>${icon('home','mob-icon')} Home</a>
+      <div class="mob-section-label">Tools</div>
+      <a href="${r}#converter">${icon('converter','mob-icon')} Currency Converter</a>
+      <a href="${r}#rates">${icon('rates','mob-icon')} Live Rates</a>
+>>>>>>> 7284cdbc07270bd3ed151e89fc899c775097b965
       <a href="${r}tools" ${activePage==='tools'?'class="active"':''}>${icon('calculator','mob-icon')} Calculator Tools</a>
       <a href="${r}alerts" ${activePage==='alerts'?'class="active"':''}>${icon('bell','mob-icon')} Rate Alerts</a>
       <a href="${r}favorites" ${activePage==='favs'?'class="active"':''}>${icon('star','mob-icon')} Favorites</a>
@@ -123,7 +147,11 @@ function injectNavbar(activePage) {
       <a href="${r}privacy-policy">${icon('lock','mob-icon')} Privacy Policy</a>
       <a href="${r}terms">${icon('file','mob-icon')} Terms of Service</a>
       <a href="${r}cookies">${icon('cookie','mob-icon')} Cookie Notice</a>
+<<<<<<< HEAD
       <a href="${r}index.html#affiliate" class="btn-gradient" style="margin-top:16px;width:100%;justify-content:center;padding:14px;">Send Money Free</a>
+=======
+      <a href="${r}#affiliate" class="btn-gradient" style="margin-top:16px;width:100%;justify-content:center;padding:14px;">Send Money Free</a>
+>>>>>>> 7284cdbc07270bd3ed151e89fc899c775097b965
     </div>
   `;
 
@@ -175,7 +203,11 @@ function injectNavbar(activePage) {
     const raw = (a.getAttribute('href') || '').split('?')[0].split('#')[0].replace(/\/$/, '');
     if (!raw || raw === '#') return;
     if (raw === pathname || raw === curSlug || raw === '/' + curSlug ||
+<<<<<<< HEAD
         (pathname === '/' && (raw === '' || raw === '/' || raw === 'index.html'))) {
+=======
+        (pathname === '/' && (raw === '' || raw === '/' || raw === '/'))) {
+>>>>>>> 7284cdbc07270bd3ed151e89fc899c775097b965
       a.classList.add('active');
     }
   });
@@ -199,7 +231,11 @@ function injectFooter() {
     <div class="footer-inner">
       <div class="footer-grid">
         <div class="footer-brand">
+<<<<<<< HEAD
           <a href="${r}index.html" class="nav-logo">
+=======
+          <a href="${r}" class="nav-logo">
+>>>>>>> 7284cdbc07270bd3ed151e89fc899c775097b965
             <div class="nav-logo-icon"><img src="${r}icon-192.png" alt="RateFlow" width="34" height="34"></div>
             <span class="nav-logo-text">RateFlow</span>
           </a>
@@ -208,8 +244,13 @@ function injectFooter() {
         <div class="footer-col">
           <h4>Tools</h4>
           <ul>
+<<<<<<< HEAD
             <li><a href="${r}index.html#converter"><span class="ft-icon">${I.converter}</span> Currency Converter</a></li>
             <li><a href="${r}index.html#rates"><span class="ft-icon">${I.rates}</span> Live Rates</a></li>
+=======
+            <li><a href="${r}#converter"><span class="ft-icon">${I.converter}</span> Currency Converter</a></li>
+            <li><a href="${r}#rates"><span class="ft-icon">${I.rates}</span> Live Rates</a></li>
+>>>>>>> 7284cdbc07270bd3ed151e89fc899c775097b965
             <li><a href="${r}tools"><span class="ft-icon">${I.calculator}</span> Calculator Tools</a></li>
             <li><a href="${r}alerts"><span class="ft-icon">${I.bell}</span> Rate Alerts</a></li>
             <li><a href="${r}favorites"><span class="ft-icon">${I.star}</span> Favorites</a></li>
